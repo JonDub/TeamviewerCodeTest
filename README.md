@@ -41,7 +41,7 @@ data when using Docker compose.
 This application is configured to build with Gradle. To build the application, simply run the following command from
 a command window. Building the application will also run the unit tests.
 
-    ./gradlew build
+    gradlew build
 
 ## Dockerizing
 
