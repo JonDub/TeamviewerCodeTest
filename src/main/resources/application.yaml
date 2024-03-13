@@ -1,0 +1,17 @@
+name: Teamviewer Test
+spring:
+  datasource:
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+    url: ${SPRING_DATASOURCE_URL}
+    driverClassName: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        jdbc.lob.non_contextual_creation: true
+        ddl-auto: true
+  sql:
+    init:
+      mode: always
+
+

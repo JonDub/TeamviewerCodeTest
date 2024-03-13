@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: teamviewer_database
+    restart: always
+    environment:
+      POSTGRES_DB: teamviewer
+      POSTGRES_USER: springbootuser
+      POSTGRES_PASSWORD: springbootpassword
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init_docker_postgres.sql:/docker-entrypoint-initdb.d/init_docker_postgres.sql
+
+  springbootapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: teamviewer
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/teamviewer
+      SPRING_DATASOURCE_USERNAME: springbootuser
+      SPRING_DATASOURCE_PASSWORD: springbootpassword
+
+volumes:
+  postgres_data:
