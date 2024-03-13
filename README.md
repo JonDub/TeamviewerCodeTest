@@ -92,5 +92,5 @@ Once completed, you should have a container running with the following services 
 When the container is running, you should be able to view the Swagger UI at this
 url:
 
-[Swagger UI](#http://localhost:8080/swagger-ui.html)
+[Swagger UI](http://localhost:8080/swagger-ui.html)
 
