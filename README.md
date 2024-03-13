@@ -4,9 +4,7 @@
 2. [Application Structure](#application-structure)
 3. [Prerequisites](#prerequisites)
 4. [Building](#building)
-5. [Dockerizing](#dockerizing)
-    * [Manual Dockerization](#manual-dockerize)
-    * [Docker Compose](#docker-compose)
+5. [Docker Compose](#docker-compose)
 
 ## Overview
 
@@ -38,40 +36,16 @@ data when using Docker compose.
 
 ## Building
 
-This application is configured to build with Gradle. To build the application, simply run the following command from
-a command window. Building the application will also run the unit tests.
+This application is configured to build with Gradle. Building thie application prior to Dockerizing is *NOT*
+requried. You can directly go to the Docker Compose section to containerize this application. 
+
+To build the application, you must first set the properties for the database in the file: /src/test/java/resources/application.properties
+to connect to your Postgres database. With the correct settings, you can run the following command from a command window to build the project. Building 
+the application will also execute the unit tests.
 
     gradlew build
 
-## Dockerizing
-
-There are two methods to Dockerize this application. The sections below describe how to perform each. The preferred
-method is to use Docker Compose.
-
-### Manual Dockerize
-
-The process of building and deploying to Docker is a two-step process. The first step is building the Docker image.
-This step prepares the code to be deployed to a Docker container. The second step is deploying and running previously
-build image. This step actually deploys the application to a usable state.
-
-This application is configured to build and deploy a Docker image with a simple script. Use the command below to
-perform these actions with Docker.
-
-The first step is to build the Docker image from the source code. Use the following command to perform this action.
-
-    docker build --tag=teamviewer:latest .
-
-Once complete, there should be a new Docker image available called "teamviewer". Now, the second step will launch the
-image in a Docker container. Use the following command to startup the image.
-
-    docker run -p 8080:8080 teamviewer
-
-Once complete, you should be able to navigate to the following url to view the Swagger docs for the deployed
-application.
-
-    http://localhost:8080/swagger-ui/index.html
-
-### Docker Compose
+## Docker Compose
 
 This application is configured to be deployed with docker compose, which is a tool for defining and running
 multi-container applications. It is the key to unlocking a streamlined and efficient development and deployment
