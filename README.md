@@ -36,8 +36,8 @@ data when using Docker compose.
 
 ## Building
 
-This application is configured to build with Gradle. Building thie application prior to Dockerizing is *NOT*
-requried. You can directly go to the Docker Compose section to containerize this application. 
+This application is configured to build with Gradle. Building thie application prior to Dockerizing is 
+requried in order to deploy to a container.
 
 To build the application, you must first set the properties for the database in the file: /src/test/java/resources/application.properties
 to connect to your Postgres database. With the correct settings, you can run the following command from a command window to build the project. Building 
